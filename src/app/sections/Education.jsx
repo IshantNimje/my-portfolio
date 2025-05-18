@@ -85,7 +85,7 @@ export default function Education() {
             {educationData.map((item, idx) => (
               <Tilt
                 key={idx}
-                glareEnable={true}
+                glareEnable
                 glareMaxOpacity={0.1}
                 glareColor="#ffffff"
                 glarePosition="all"
@@ -93,7 +93,7 @@ export default function Education() {
                 tiltMaxAngleY={8}
                 scale={1.02}
                 transitionSpeed={1000}
-                className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-5"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5"
               >
                 <div
                   className={`cursor-pointer ${
@@ -130,7 +130,7 @@ export default function Education() {
             {certificationsData.map((item, idx) => (
               <Tilt
                 key={idx}
-                glareEnable={true}
+                glareEnable
                 glareMaxOpacity={0.1}
                 glareColor="#ffffff"
                 glarePosition="all"
@@ -138,7 +138,7 @@ export default function Education() {
                 tiltMaxAngleY={8}
                 scale={1.02}
                 transitionSpeed={1000}
-                className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-5"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5"
               >
                 <div
                   className="cursor-pointer"
@@ -188,7 +188,6 @@ export default function Education() {
               >
                 <FaTimes />
               </button>
-
               <img
                 src={selectedImage}
                 alt="Certificate Preview"

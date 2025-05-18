@@ -43,7 +43,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-gray-50 dark:bg-[#0b0b0b] px-6 py-20"
+      className="min-h-screen bg-white dark:bg-[#0b0b0b] px-4 sm:px-6 py-16 sm:py-20"
     >
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: idx * 0.2 }}
           >
             <Tilt
-              glareEnable={true}
+              glareEnable
               glareMaxOpacity={0.1}
               glareColor="#ffffff"
               glarePosition="all"
@@ -74,7 +74,7 @@ export default function Projects() {
               className="h-full"
             >
               <div
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col h-full cursor-pointer"
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col h-full cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
                 <Image
@@ -82,12 +82,12 @@ export default function Projects() {
                   alt={project.title}
                   width={500}
                   height={300}
-                  className="rounded mb-4"
+                  className="rounded mb-4 object-cover"
                 />
                 <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm sm:text-base">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
