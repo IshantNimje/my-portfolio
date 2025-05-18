@@ -39,13 +39,13 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-colors duration-500 ease-in-out ${
-        scrolled ? "bg-white shadow-lg" : "bg-transparent"
+        scrolled ? "bg-white dark:bg-black shadow-lg" : "bg-transparent"
       }`}
       style={{ boxShadow: scrolled ? "0 2px 6px rgba(0,0,0,0.1)" : "none" }}
     >
       <div
         className={`max-w-7xl mx-auto px-6 py-4 flex justify-between items-center transition-colors duration-500 ease-in-out ${
-          scrolled ? "text-gray-800" : "text-white"
+          scrolled ? "text-gray-900 dark:text-white" : "text-white"
         }`}
       >
         <div
@@ -62,8 +62,8 @@ export default function Navbar() {
               <button
                 className={`relative py-1 focus:outline-none transition-colors duration-300 ${
                   active === section
-                    ? "text-blue-600 font-semibold"
-                    : "hover:text-blue-500"
+                    ? "text-blue-600 font-semibold dark:text-blue-400"
+                    : "hover:text-blue-500 dark:hover:text-blue-400"
                 }`}
                 onClick={() => handleLinkClick(section)}
                 aria-current={active === section ? "page" : undefined}
@@ -83,7 +83,7 @@ export default function Navbar() {
         <button
           className={`md:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 transition-colors duration-500 ${
             scrolled
-              ? "text-gray-800 hover:bg-gray-200"
+              ? "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
               : "text-white hover:bg-gray-700"
           }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -119,15 +119,15 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg border-t border-gray-200">
-          <ul className="flex flex-col space-y-2 px-6 py-6 text-gray-800 font-medium">
+        <div className="md:hidden bg-white dark:bg-black/95 backdrop-blur-sm shadow-lg border-t border-gray-200 dark:border-gray-700">
+          <ul className="flex flex-col space-y-2 px-6 py-6 text-gray-900 dark:text-white font-medium">
             {sections.map((section) => (
               <li key={section}>
                 <button
                   className={`w-full text-left py-2 px-1 rounded focus:outline-none transition-colors duration-200 ${
                     active === section
-                      ? "bg-blue-100 text-blue-600 font-semibold"
-                      : "hover:bg-gray-100"
+                      ? "bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400 font-semibold"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
                   onClick={() => handleLinkClick(section)}
                   aria-current={active === section ? "page" : undefined}
