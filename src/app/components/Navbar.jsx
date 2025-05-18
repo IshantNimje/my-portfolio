@@ -7,12 +7,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const sections = ["hero", "about", "education", "experience", "projects", "contact"];
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      // Update active link on scroll
-      const sections = ["hero", "about", "projects", "resume", "contact"];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -23,15 +22,14 @@ export default function Navbar() {
         }
       }
     };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Smooth scroll to section
   const handleLinkClick = (section) => {
     setActive(section);
     setMobileMenuOpen(false);
-
     const el = document.getElementById(section);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -40,27 +38,26 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-500 ${
+      className={`fixed top-0 w-full z-50 transition-colors duration-500 ease-in-out ${
         scrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
+      style={{ boxShadow: scrolled ? "0 2px 6px rgba(0,0,0,0.1)" : "none" }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div
+        className={`max-w-7xl mx-auto px-6 py-4 flex justify-between items-center transition-colors duration-500 ease-in-out ${
+          scrolled ? "text-gray-800" : "text-white"
+        }`}
+      >
         <div
-          className={`text-2xl font-bold cursor-pointer select-none transition-colors duration-500 ${
-            scrolled ? "text-blue-600" : "text-white"
-          }`}
+          className="text-2xl font-bold cursor-pointer select-none"
           onClick={() => handleLinkClick("hero")}
         >
           MyPortfolio
         </div>
 
         {/* Desktop Menu */}
-        <ul
-          className={`hidden md:flex space-x-8 font-medium transition-colors duration-500 ${
-            scrolled ? "text-gray-800" : "text-white"
-          }`}
-        >
-          {["hero", "about", "projects", "resume", "contact"].map((section) => (
+        <ul className="hidden md:flex space-x-8 font-medium">
+          {sections.map((section) => (
             <li key={section}>
               <button
                 className={`relative py-1 focus:outline-none transition-colors duration-300 ${
@@ -72,14 +69,11 @@ export default function Navbar() {
                 aria-current={active === section ? "page" : undefined}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-                {active === section && (
-                  <span
-                    className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-600 rounded-full"
-                    style={{
-                      animation: "slideIn 0.3s ease forwards",
-                    }}
-                  />
-                )}
+                <span
+                  className={`absolute left-0 -bottom-1 w-full h-[2px] bg-blue-600 rounded-full transition-transform duration-300 ease-in-out origin-left ${
+                    active === section ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
               </button>
             </li>
           ))}
@@ -88,7 +82,9 @@ export default function Navbar() {
         {/* Mobile Hamburger Button */}
         <button
           className={`md:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 transition-colors duration-500 ${
-            scrolled ? "text-gray-800 hover:bg-gray-200" : "text-white hover:bg-gray-700"
+            scrolled
+              ? "text-gray-800 hover:bg-gray-200"
+              : "text-white hover:bg-gray-700"
           }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
@@ -123,12 +119,12 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
+        <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg border-t border-gray-200">
           <ul className="flex flex-col space-y-2 px-6 py-6 text-gray-800 font-medium">
-            {["hero", "about", "projects", "resume", "contact"].map((section) => (
+            {sections.map((section) => (
               <li key={section}>
                 <button
-                  className={`w-full text-left py-2 px-1 rounded focus:outline-none ${
+                  className={`w-full text-left py-2 px-1 rounded focus:outline-none transition-colors duration-200 ${
                     active === section
                       ? "bg-blue-100 text-blue-600 font-semibold"
                       : "hover:bg-gray-100"
@@ -143,17 +139,6 @@ export default function Navbar() {
           </ul>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes slideIn {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 100%;
-          }
-        }
-      `}</style>
     </nav>
   );
 }

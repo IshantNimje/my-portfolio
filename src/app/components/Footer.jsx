@@ -1,37 +1,43 @@
 "use client";
 
-import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 text-gray-700 py-8 mt-20">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <p className="text-sm">&copy; {new Date().getFullYear()} Ishant Nimje. All rights reserved.</p>
+    <footer className="bg-gray-100 dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-300 py-6 px-4">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+        {/* Left side - copyright */}
+        <p className="text-sm text-center sm:text-left mb-4 sm:mb-0">
+          &copy; {new Date().getFullYear()} Ishant Nimje. All rights reserved.
+        </p>
 
-        <div className="flex space-x-5 text-xl">
-          <Link
-            href="https://github.com/ishantnimje"
+        {/* Right side - social icons */}
+        <div className="flex space-x-4 text-xl">
+          <a
+            href="https://github.com/your-github-username"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600 transition"
+            aria-label="GitHub"
           >
             <FaGithub />
-          </Link>
-          <Link
-            href="https://linkedin.com/in/ishantnimje"
+          </a>
+          <a
+            href="https://www.linkedin.com/in/your-linkedin-id"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600 transition"
+            aria-label="LinkedIn"
           >
             <FaLinkedin />
-          </Link>
-          <Link
+          </a>
+          <a
             href="mailto:nimjeishant3@gmail.com"
             className="hover:text-blue-600 transition"
+            aria-label="Email"
           >
             <FaEnvelope />
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
