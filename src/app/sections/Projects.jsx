@@ -18,13 +18,13 @@ const projects = [
     image: "/projects/grocery.png",
   },
   {
-    title: "Notes App (MERN)",
+    title: "Meeting Room Booking System (MERN)",
     description:
-      "A full-stack notes app with CRUD operations, search functionality, and a MongoDB backend.",
+      "A full-stack room booking app with CRUD operations, admin panel, and MongoDB backend.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/your-username/notes-app",
-    live: "",
-    image: "/projects/notes.jpg",
+    live: "https://meeting-room-booking-system-ashy.vercel.app/",
+    image: "/projects/meetingroom.png",
   },
   {
     title: "Portfolio Website",
@@ -33,7 +33,7 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/your-username/portfolio",
     live: "https://my-portfolio-green-sigma-40.vercel.app/",
-    image: "/projects/portfolio.jpg",
+    image: "/projects/portfolio.png",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function Projects() {
         Projects
       </motion.h2>
 
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
@@ -74,27 +74,27 @@ export default function Projects() {
               className="h-full"
             >
               <div
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col h-full cursor-pointer"
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-4 flex flex-col h-full"
                 onClick={() => setSelectedProject(project)}
               >
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={500}
-                  height={300}
-                  className="rounded mb-4 object-cover"
+                  width={600}
+                  height={400}
+                  className="rounded mb-4 w-full h-auto object-cover"
                 />
-                <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm sm:text-base">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-sm bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded"
+                      className="text-xs sm:text-sm bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
@@ -107,6 +107,8 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title="GitHub"
+                      className="hover:scale-110 transition-transform"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <FaGithub />
                     </a>
@@ -117,6 +119,8 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Live Demo"
+                      className="hover:scale-110 transition-transform"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <FaExternalLinkAlt />
                     </a>
