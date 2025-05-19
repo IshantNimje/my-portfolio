@@ -20,6 +20,30 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Ishant Nimje | Full Stack Developer",
   description: "Portfolio website of Ishant Nimje - Full Stack Developer skilled in Next.js, React, Node.js, and more.",
+  icons: {
+    icon: '/favicon.png',
+  },
+  openGraph: {
+    title: "Ishant Nimje | Full Stack Developer",
+    description: "Aspiring Cloud Engineer learning Terraform, Docker, and CI/CD. Portfolio showcasing full stack and cloud journey.",
+    url: "https://your-domain.vercel.app", // replace with your actual URL
+    siteName: "Ishant Nimje Portfolio",
+    images: [
+      {
+        url: "/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Ishant Nimje Portfolio OG Banner",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ishant Nimje | Full Stack Developer",
+    description: "Aspiring Cloud Engineer | Full Stack Developer",
+    images: ["/og-banner.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
