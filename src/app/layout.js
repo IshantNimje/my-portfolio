@@ -26,11 +26,11 @@ export const metadata = {
   openGraph: {
     title: "Ishant Nimje | Full Stack Developer",
     description: "Aspiring Cloud Engineer learning Terraform, Docker, and CI/CD. Portfolio showcasing full stack and cloud journey.",
-    url: "https://your-domain.vercel.app", // replace with your actual URL
+    url: "https://my-portfolio-green-sigma-40.vercel.app/",
     siteName: "Ishant Nimje Portfolio",
     images: [
       {
-        url: "/og-banner.png",
+        url: "https://my-portfolio-green-sigma-40.vercel.app/og-banner.png",
         width: 1200,
         height: 630,
         alt: "Ishant Nimje Portfolio OG Banner",
