@@ -21,7 +21,7 @@ export const metadata = {
   title: "Ishant Nimje | Full Stack Developer",
   description: "Portfolio website of Ishant Nimje - Full Stack Developer skilled in Next.js, React, Node.js, and more.",
   icons: {
-    icon: '/favicon.png',
+    icon: 'https://my-portfolio-green-sigma-40.vercel.app/favicon.png',
   },
   openGraph: {
     title: "Ishant Nimje | Full Stack Developer",
