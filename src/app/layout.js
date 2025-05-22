@@ -42,7 +42,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ishant Nimje | Full Stack Developer",
     description: "Aspiring Cloud Engineer | Full Stack Developer",
-    images: ["/og-banner.png"],
+    images: ["https://my-portfolio-green-sigma-40.vercel.app/og-banner.png"],
   },
 };
 
